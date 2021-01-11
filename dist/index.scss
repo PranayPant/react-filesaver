@@ -1,0 +1,16 @@
+
+@mixin flex($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+  
+
+.dropzone-wrapper {
+    @include flex(row, stretch, stretch)
+}
+
+.dzone-item {
+    flex: 1
+}

@@ -1,8 +1,7 @@
 import React from "react";
 import Dropzone from "./Dropzone";
 import FileList from "./FileList";
-import {selectValidFiles} from './utils'
-import useUpload from './hooks'
+import useUpload from 'react-filesaver'
 
 export default function App() {
 
