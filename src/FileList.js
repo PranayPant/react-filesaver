@@ -22,9 +22,11 @@ export default function FileList(props) {
     <div className="file-list">
       <table>
         <thead>
-          <th>File</th>
-          <th>Last Modified</th>
-          <th>Uploaded At</th>
+          <tr>
+            <th>File</th>
+            <th>Last Modified</th>
+            <th>Uploaded At</th>
+          </tr>
         </thead>
         <tbody>
           {state.files.map((f, i) => (
