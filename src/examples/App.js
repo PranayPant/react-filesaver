@@ -2,6 +2,7 @@ import React from "react";
 import Dropzone from "./Dropzone";
 import FileList from "./FileList";
 import useUpload from 'react-filesaver'
+import './index.scss';
 
 export default function App() {
 
