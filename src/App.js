@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import Dropzone from "./Dropzone";
 import FileList from "./FileList";
 import {selectValidFiles} from './utils'
+import useUpload from './hooks'
 
 export default function App() {
 
-  const [files, setFiles] = useState([]);
-
-  const addFiles = async (files) => {
-    const validFiles = await selectValidFiles(files)
-    setFiles( prev => [...prev, ...validFiles])
-  }
+  const {UploadWrapper, files} = useUpload()
 
   return (
     <React.Fragment>
-      <Dropzone addFiles={addFiles} />
+      <UploadWrapper>
+        <Dropzone />
+      </UploadWrapper>
       <FileList files={files} />
     </React.Fragment>
   );
