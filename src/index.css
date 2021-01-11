@@ -1,13 +1,39 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.dropzone {
+  height: 100px;
+  width: 50%;
+  border: 1px solid green;
+  border-radius: 20px;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.dropzone:hover {
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px dashed green;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.file-list {
+  padding: 3ch;
+}
+
+.file-list table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.file-list table thead th {
+  height: 30px;
+  font-size: 20px;
+}
+
+.file-list table,
+thead,
+tbody,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
 }
