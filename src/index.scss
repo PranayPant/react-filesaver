@@ -1,0 +1,36 @@
+@mixin flex($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.dropzone {
+  height: 100px;
+  width: 50%;
+  border: 1px solid green;
+  border-radius: 20px;
+  background-color: aquamarine;
+  &:hover{
+    cursor: pointer;
+    opacity: 0.6;
+    border: 2px dashed green;
+  }
+  @include flex
+}
+
+.file-list {
+  padding: 3ch;
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    thead th {
+      height: 30px;
+      font-size: 20px;
+    }
+  }
+  table, thead, tbody, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+}
