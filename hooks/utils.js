@@ -52,6 +52,18 @@ const validateDOCX = (file) => {
   })
 }
 
+const validateTXT = (file) => {
+  return new Promise( async (resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsText(file);
+    reader.onload = function (evt) {
+      const content = evt.target.result;
+      console.log(content)
+      resolve(content)
+    }
+  })
+}
+
 const validateFile = async (file) => {
   const resolvers = { resolve: null, reject: null }
   const promise = new Promise((res, rej) => {
@@ -60,11 +72,13 @@ const validateFile = async (file) => {
   })
   let result
   if(file.type === FILE_TYPES.DOCX){
-    
     result = await validateDOCX(file)
   }
   else if(file.type === FILE_TYPES.PDF){
     result = await validatePDF(file)
+  }
+  else if(file.type === FILE_TYPES.TXT){
+    result = await validateTXT(file)
   }
   resolvers.resolve(result)
   return promise

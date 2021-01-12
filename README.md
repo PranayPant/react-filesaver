@@ -8,11 +8,13 @@ To abstract upload file functionality via React Hooks
 
 Use this to wrap your custom upload UI component
 
-### Password protection (for pdf only at the moment)
+### Handle password protection (for .PDF and .DOCX only at the moment)
 
-Will not allow password protected files to be uploaded
+Captures errors when uploading password protected files, and prevents file from being uploaded
 
 # Installation
+
+To add `react-filesaver` into existing project, do
 
 `yarn add react-filesaver`
 or
@@ -20,12 +22,13 @@ or
 
 ## Example
 
-To run the example, simply download the [repo](https://github.com/PranayPant/react-filesaver) and run `npm start`
+To run the example, do the following steps:
 
 ```
 git clone https://github.com/PranayPant/react-filesaver.git
-cd react-filesaver
-npm start
+cd react-filesaver/examples
+yarn install
+yarn start
 ```
 
 See how to use in existing project below:

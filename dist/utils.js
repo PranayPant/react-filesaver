@@ -53,6 +53,19 @@ const validateDOCX = file => {
   });
 };
 
+const validateTXT = file => {
+  return new Promise(async (resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsText(file);
+
+    reader.onload = function (evt) {
+      const content = evt.target.result;
+      console.log(content);
+      resolve(content);
+    };
+  });
+};
+
 const validateFile = async file => {
   const resolvers = {
     resolve: null,
@@ -68,6 +81,8 @@ const validateFile = async file => {
     result = await validateDOCX(file);
   } else if (file.type === FILE_TYPES.PDF) {
     result = await validatePDF(file);
+  } else if (file.type === FILE_TYPES.TXT) {
+    result = await validateTXT(file);
   }
 
   resolvers.resolve(result);

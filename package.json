@@ -1,37 +1,15 @@
 {
   "name": "react-filesaver",
-  "version": "0.1.4",
+  "version": "0.1.5",
+  "homepage": "https://github.com/PranayPant/react-filesaver#README.md",
+  "author": "Pranay Pant",
   "dependencies": {
-    "node-sass": "4.14.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1"
+    "react": "^17.0.1"
   },
+  "repository": "https://github.com/PranayPant/react-filesaver.git",
   "main": "dist/index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "npm:compile": "rm -rf dist && mkdir dist &&  babel src/hooks/ -d dist --copy-files"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "npm:compile": "rm -rf dist && mkdir dist &&  babel hooks/ -d dist --copy-files"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
