@@ -2,11 +2,14 @@ import React from "react";
 import Dropzone from "./Dropzone";
 import FileList from "./FileList";
 import useUpload from 'react-filesaver'
+//import useUpload from '../hooks'
+import FILE_TYPES from '../hooks/fileTypes'
 import './index.scss';
 
 export default function App() {
 
-  const {UploadWrapper, files, errors=[]} = useUpload()
+  const params = {accept: `${FILE_TYPES.PDF}, ${FILE_TYPES.DOCX}`}
+  const {UploadWrapper, files, errors=[]} = useUpload(params)
 
   return (
     <React.Fragment>

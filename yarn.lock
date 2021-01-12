@@ -9362,10 +9362,10 @@ react-error-overlay@^6.0.8:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.8.tgz#474ed11d04fc6bda3af643447d85e9127ed6b5de"
   integrity sha512-HvPuUQnLp5H7TouGq3kzBeioJmXms1wHy9EGjz2OURWBp4qZO6AfGEcnxts1D/CbwPLRAgTMPCEgYhA3sEM4vw==
 
-react-filesaver@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/react-filesaver/-/react-filesaver-0.1.2.tgz#cce70c12d5a37f8a23fff64c39fa899666de016d"
-  integrity sha512-l2WDUSr78aUhFrNUYAreaSvE9qiGrJ1+xa19s4lXTuPHoF4aUUhtJvcu7BD9cYsCwBmFXMGgcmS8ohNXvI0GSg==
+react-filesaver@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/react-filesaver/-/react-filesaver-0.1.4.tgz#58877dcc3710dcd966af1b454594fbe00325f3cc"
+  integrity sha512-3KajCUYRjcLGcyUZNnte7ZFnnRGT8tlmSOdav8l5hCMvut938KKTqXN1u/LZCveNhIQXpoqtJHUbRipgh1eIyQ==
   dependencies:
     node-sass "4.14.1"
     react "^17.0.1"

@@ -1,4 +1,6 @@
-const readFileToArrayBuffer = async fileData => {
+import FILE_TYPES from './fileTypes';
+
+const readFileToArrayBuffer = fileData => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsArrayBuffer(fileData);
@@ -8,6 +10,18 @@ const readFileToArrayBuffer = async fileData => {
 
       const bytes = new Uint8Array(result);
       resolve(bytes);
+    };
+  });
+};
+
+const readFileToBinaryString = fileData => {
+  return new Promise(resolve => {
+    const reader = new FileReader();
+    reader.readAsBinaryString(fileData);
+
+    reader.onload = function (evt) {
+      const content = evt.target.result;
+      resolve(content);
     };
   });
 };
@@ -25,19 +39,88 @@ const validatePDF = file => {
   });
 };
 
-export const selectValidFiles = files => {
+const validateDOCX = file => {
+  return new Promise(async (resolve, reject) => {
+    const content = await readFileToBinaryString(file);
+
+    try {
+      const zip = new window.PizZip(content);
+      const doc = new window.docxtemplater(zip);
+      resolve(doc);
+    } catch (err) {
+      reject(err);
+    }
+  });
+};
+
+const validateFile = async file => {
+  const resolvers = {
+    resolve: null,
+    reject: null
+  };
+  const promise = new Promise((res, rej) => {
+    resolvers.resolve = res;
+    resolvers.reject = rej;
+  });
+  let result;
+
+  if (file.type === FILE_TYPES.DOCX) {
+    result = await validateDOCX(file);
+  } else if (file.type === FILE_TYPES.PDF) {
+    result = await validatePDF(file);
+  }
+
+  resolvers.resolve(result);
+  return promise;
+};
+
+const meetsMaxSize = (maxSize, file) => {
+  return file.size <= maxSize;
+};
+
+const isAcceptedFileType = (mimeString, file) => {
+  const mimeTypes = mimeString.split(',').map(t => t.trim());
+  return mimeTypes.includes(file.type) || mimeTypes.includes(FILE_TYPES.ALL);
+};
+
+export const selectValidFiles = (files, maxSize, accept) => {
   return new Promise(async resolve => {
     const validFiles = [];
     const errors = [];
 
     for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+
       try {
-        const file = await validatePDF(files[i]);
-        validFiles.push(file);
+        const isAccepted = isAcceptedFileType(accept, file);
+        const meetsSize = meetsMaxSize(maxSize, file);
+
+        if (isAcceptedFileType && meetsMaxSize) {
+          await validateFile(file);
+          validFiles.push(file);
+        } else {
+          if (!isAccepted) {
+            errors.push({
+              file: file.name,
+              err: 'File type is not accepted.'
+            });
+          }
+
+          if (!meetsSize) {
+            errors.push({
+              file: file.name,
+              err: 'File is too big.'
+            });
+          }
+        }
       } catch (err) {
+        const error = {
+          message: 'Error reading file: Make sure file is not password protected',
+          ...err
+        };
         errors.push({
-          file: files[i].name,
-          err
+          file: file.name,
+          error
         });
       }
     }

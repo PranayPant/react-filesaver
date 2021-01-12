@@ -3,7 +3,8 @@ import './index.scss';
 export default function UploadHelper(props) {
   const {
     children,
-    addFiles
+    addFiles,
+    accept
   } = props;
   const inputRef = useRef();
 
@@ -42,7 +43,7 @@ export default function UploadHelper(props) {
     ref: inputRef,
     type: "file",
     multiple: true,
-    accept: "application/pdf",
+    accept: accept,
     style: {
       display: "none"
     },

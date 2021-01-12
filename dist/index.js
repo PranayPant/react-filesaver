@@ -2,6 +2,10 @@ import { useState } from "react";
 import { selectValidFiles } from './utils';
 import UploadHelper from './UploadHelper';
 export default function useUpload(props) {
+  const {
+    maxSize = 26214400,
+    accept = "*"
+  } = props;
   const [state, setState] = useState({
     files: [],
     errors: []
@@ -11,7 +15,7 @@ export default function useUpload(props) {
     const {
       files,
       errors
-    } = await selectValidFiles(_files);
+    } = await selectValidFiles(_files, maxSize, accept);
     setState(prev => ({ ...prev,
       errors: [...prev.errors, ...errors],
       files: [...prev.files, ...files]
@@ -19,7 +23,8 @@ export default function useUpload(props) {
   };
 
   const UploadWrapper = props => UploadHelper({ ...props,
-    addFiles
+    addFiles,
+    accept
   });
 
   return {
