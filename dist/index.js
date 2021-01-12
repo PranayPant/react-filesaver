@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { selectValidFiles } from './utils';
 import UploadHelper from './UploadHelper';
 export default function useUpload(props) {
   const [state, setState] = useState({
-    files: []
+    files: [],
+    errors: []
   });
 
-  const addFiles = async files => {
-    const validFiles = await selectValidFiles(files);
+  const addFiles = async _files => {
+    const {
+      files,
+      errors
+    } = await selectValidFiles(_files);
     setState(prev => ({ ...prev,
-      files: [...prev.files, ...validFiles]
+      errors: [...prev.errors, ...errors],
+      files: [...prev.files, ...files]
     }));
   };
 
@@ -19,6 +24,7 @@ export default function useUpload(props) {
 
   return {
     UploadWrapper,
-    files: state.files
+    files: state.files,
+    errors: state.errors
   };
 }

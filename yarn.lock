@@ -9362,16 +9362,15 @@ react-error-overlay@^6.0.8:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.8.tgz#474ed11d04fc6bda3af643447d85e9127ed6b5de"
   integrity sha512-HvPuUQnLp5H7TouGq3kzBeioJmXms1wHy9EGjz2OURWBp4qZO6AfGEcnxts1D/CbwPLRAgTMPCEgYhA3sEM4vw==
 
-react-filesaver@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/react-filesaver/-/react-filesaver-0.1.0.tgz#f25d24ee7d1631306daf27df0aaa57dd27a01c81"
-  integrity sha512-OLHWRCf3tgBxH045rCvMAmfXePCxMykCA+O2RR422dRVyw36vqPqwLxV7MpPJkuPCPHd5NVNqP4xnCmDs2Wmpw==
+react-filesaver@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-filesaver/-/react-filesaver-0.1.2.tgz#cce70c12d5a37f8a23fff64c39fa899666de016d"
+  integrity sha512-l2WDUSr78aUhFrNUYAreaSvE9qiGrJ1+xa19s4lXTuPHoF4aUUhtJvcu7BD9cYsCwBmFXMGgcmS8ohNXvI0GSg==
   dependencies:
     node-sass "4.14.1"
     react "^17.0.1"
     react-dom "^17.0.1"
     react-scripts "4.0.1"
-    web-vitals "^0.2.4"
 
 react-is@^16.8.1:
   version "16.13.1"
@@ -11452,11 +11451,6 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
-
-web-vitals@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-0.2.4.tgz#ec3df43c834a207fd7cdefd732b2987896e08511"
-  integrity sha512-6BjspCO9VriYy12z356nL6JBS0GYeEcA457YyRzD+dD6XYCQ75NKhcOHUMHentOE7OcVCIXXDvOm0jKFfQG2Gg==
 
 webidl-conversions@^5.0.0:
   version "5.0.0"

@@ -28,16 +28,23 @@ const validatePDF = file => {
 export const selectValidFiles = files => {
   return new Promise(async resolve => {
     const validFiles = [];
+    const errors = [];
 
     for (let i = 0; i < files.length; i++) {
       try {
         const file = await validatePDF(files[i]);
         validFiles.push(file);
       } catch (err) {
-        console.log(err);
+        errors.push({
+          file: files[i].name,
+          err
+        });
       }
     }
 
-    resolve(validFiles);
+    resolve({
+      files: validFiles,
+      errors
+    });
   });
 };

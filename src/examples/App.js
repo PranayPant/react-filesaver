@@ -6,7 +6,7 @@ import './index.scss';
 
 export default function App() {
 
-  const {UploadWrapper, files} = useUpload()
+  const {UploadWrapper, files, errors=[]} = useUpload()
 
   return (
     <React.Fragment>
@@ -14,6 +14,7 @@ export default function App() {
         <Dropzone />
       </UploadWrapper>
       <FileList files={files} />
+      { errors.map((e, i) => <div key={i}>{JSON.stringify(e)}</div>)}
     </React.Fragment>
   );
 }
