@@ -1,13 +1,13 @@
 {
   "name": "react-filesaver",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "homepage": "https://github.com/PranayPant/react-filesaver#README.md",
   "author": "Pranay Pant",
   "dependencies": {
     "react": "^17.0.1"
   },
   "repository": "https://github.com/PranayPant/react-filesaver.git",
-  "main": "dist/index.js",
+  "main": "index",
   "scripts": {
     "npm:compile": "rm -rf dist && mkdir dist &&  babel hooks/ -d dist --copy-files"
   },
