@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import * as pdfjsLib from "pdfjs-dist/build/pdf";
+import pdfjsWorker from "pdfjs-dist/build/pdf.worker.entry";
 import { selectValidFiles } from './utils';
 import UploadHelper from './UploadHelper';
 export default function useUpload(props) {
@@ -21,6 +23,10 @@ export default function useUpload(props) {
       files: [...prev.files, ...files]
     }));
   };
+
+  useEffect(() => {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+  }, []);
 
   const UploadWrapper = props => UploadHelper({ ...props,
     addFiles,
