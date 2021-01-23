@@ -1,9 +1,12 @@
 {
   "name": "react-filesaver",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "homepage": "https://github.com/PranayPant/react-filesaver#README.md",
   "author": "Pranay Pant",
   "dependencies": {
+    "docxtemplater": "^3.19.9",
+    "pdfjs-dist": "^2.5.207",
+    "pizzip": "^3.0.6",
     "react": "^17.0.1"
   },
   "repository": "https://github.com/PranayPant/react-filesaver.git",
@@ -15,5 +18,11 @@
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/preset-react": "^7.12.10"
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "all",
+    "tabWidth": 3,
+    "printWidth": 80
   }
 }
